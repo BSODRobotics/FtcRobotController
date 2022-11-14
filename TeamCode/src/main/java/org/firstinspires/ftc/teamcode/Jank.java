@@ -20,8 +20,8 @@ public class Jank extends LinearOpMode {
     private DcMotor RightBack;
     private DcMotor Lift;
 
-    private Servo clawR = null;
-    private Servo clawL = null;
+    private Servo clawR;
+    private Servo clawL;
 
 
     private int liftAmount = 0;
@@ -31,6 +31,8 @@ public class Jank extends LinearOpMode {
      */
     @Override
     public void runOpMode() {
+
+
         RightFront = hardwareMap.get(DcMotor.class, "RightFront");
         LeftFront = hardwareMap.get(DcMotor.class, "LeftFront");
         LeftBack = hardwareMap.get(DcMotor.class, "LeftBack");
@@ -63,9 +65,12 @@ public class Jank extends LinearOpMode {
 
         clawL.setDirection(Servo.Direction.FORWARD);
         clawR.setDirection(Servo.Direction.REVERSE);
+        
         if (opModeIsActive()) {
             // Put run blocks here.
             while (opModeIsActive()) {
+
+                
 
                 if (gamepad2.dpad_up) {
                     liftAmount += 1;
